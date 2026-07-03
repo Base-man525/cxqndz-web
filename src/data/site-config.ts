@@ -18,10 +18,10 @@ export const siteConfig = {
 
   // 导航链接
   navigation: [
-    { label: '首页', href: '/' },
-    { label: '产品服务', href: '/products' },
-    { label: '关于我们', href: '/about' },
-    { label: '联系我们', href: '/contact' },
+    { label: '首页', href: '/cxqndz-web/' },
+    { label: '产品服务', href: '/cxqndz-web/products' },
+    { label: '关于我们', href: '/cxqndz-web/about' },
+    { label: '联系我们', href: '/cxqndz-web/contact' },
   ],
 
   // 联系方式
