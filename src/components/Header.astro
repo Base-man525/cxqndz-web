@@ -1,0 +1,63 @@
+---
+import { siteConfig } from '../data/site-config';
+const { currentPath = '/' } = Astro.props;
+---
+
+<header class="header" id="header">
+  <div class="header__inner">
+    <a href="/" class="header__logo">
+      <img src="/images/cxqn-logo.jpg" alt="长兴强耐电子" class="header__logo-icon" />
+      <span>{siteConfig.name}</span>
+    </a>
+
+    <nav>
+      <ul class="header__nav" id="mainNav">
+        {siteConfig.navigation.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              class={currentPath === item.href ? 'active' : ''}
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <button class="header__menu-btn" id="menuBtn" aria-label="菜单">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</header>
+
+<script>
+  const header = document.getElementById('header');
+  const menuBtn = document.getElementById('menuBtn');
+  const mainNav = document.getElementById('mainNav');
+
+  // 滚动时 header 样式变化
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 80) {
+      header?.classList.add('header--scrolled');
+    } else {
+      header?.classList.remove('header--scrolled');
+    }
+  });
+
+  // 移动端菜单
+  menuBtn?.addEventListener('click', () => {
+    menuBtn.classList.toggle('open');
+    mainNav?.classList.toggle('open');
+  });
+
+  // 点击导航链接后关闭菜单
+  mainNav?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      menuBtn?.classList.remove('open');
+      mainNav?.classList.remove('open');
+    });
+  });
+</script>

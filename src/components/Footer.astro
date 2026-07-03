@@ -1,0 +1,39 @@
+---
+import { siteConfig } from '../data/site-config';
+---
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <!-- 品牌 -->
+      <div class="footer__brand">
+        <a href="/" class="header__logo">{siteConfig.name}</a>
+        <p>{siteConfig.description}</p>
+      </div>
+
+      <!-- 快速链接 -->
+      <div>
+        <h4>快速链接</h4>
+        <ul class="footer__links">
+          {siteConfig.navigation.map((item) => (
+            <li><a href={item.href}>{item.label}</a></li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- 联系方式 -->
+      <div>
+        <h4>联系方式</h4>
+        <ul class="footer__links">
+          <li><a href={`mailto:${siteConfig.contact.email}`}>{siteConfig.contact.email}</a></li>
+          <li><span>{siteConfig.contact.phone}</span></li>
+          <li><span>{siteConfig.contact.address}</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <p>{siteConfig.copyright}</p>
+    </div>
+  </div>
+</footer>

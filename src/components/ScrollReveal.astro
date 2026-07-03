@@ -1,0 +1,37 @@
+<div class="reveal">
+  <slot />
+</div>
+
+<script>
+  // 全局滚动显示逻辑（在页面中只执行一次）
+  if (!(window as any).__revealInitialized) {
+    (window as any).__revealInitialized = true;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px',
+      },
+    );
+
+    // 初始化和监听动态添加的元素
+    function observeRevealElements() {
+      document.querySelectorAll('.reveal:not(.visible)').forEach((el) => {
+        observer.observe(el);
+      });
+    }
+
+    // 页面加载完成后初始化
+    document.addEventListener('DOMContentLoaded', observeRevealElements);
+
+    // Astro 页面切换时重新初始化
+    document.addEventListener('astro:page-load', observeRevealElements);
+  }
+</script>

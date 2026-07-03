@@ -1,0 +1,60 @@
+---
+import { companyStats } from '../data/timeline';
+---
+
+<div class="stats-grid">
+  {companyStats.map((stat) => (
+    <div class="stat-card reveal">
+      <div class="stat-card__number">
+        <span
+          class="stats-counter"
+          data-target={stat.value}
+          data-suffix={stat.suffix}
+        >0</span>
+      </div>
+      <div class="stat-card__label">{stat.label}</div>
+    </div>
+  ))}
+</div>
+
+<script>
+  function animateCounters() {
+    document.querySelectorAll('.stats-counter').forEach((el) => {
+      const target = parseInt(el.dataset.target || '0');
+      const suffix = el.dataset.suffix || '';
+      const duration = 2000;
+      const startTime = performance.now();
+
+      function update(now: number) {
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        // easeOutQuart
+        const eased = 1 - Math.pow(1 - progress, 4);
+        const current = Math.round(target * eased);
+        el.textContent = current + suffix;
+
+        if (progress < 1) {
+          requestAnimationFrame(update);
+        }
+      }
+
+      requestAnimationFrame(update);
+    });
+  }
+
+  // 使用 Intersection Observer 触发
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          animateCounters();
+          observer.disconnect();
+        }
+      });
+    },
+    { threshold: 0.5 },
+  );
+
+  const statsGrid = document.querySelector('.stats-grid');
+  if (statsGrid) observer.observe(statsGrid);
+</script>

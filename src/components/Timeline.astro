@@ -1,0 +1,14 @@
+---
+import { timelineEvents } from '../data/timeline';
+---
+
+<div class="timeline">
+  {timelineEvents.map((event) => (
+    <div class="timeline__item reveal">
+      <div class="timeline__dot"></div>
+      <div class="timeline__date">{event.year}</div>
+      <h3>{event.title}</h3>
+      <p>{event.description}</p>
+    </div>
+  ))}
+</div>

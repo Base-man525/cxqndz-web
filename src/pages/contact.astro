@@ -1,0 +1,72 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactForm from '../components/ContactForm.astro';
+import SectionTitle from '../components/SectionTitle.astro';
+import { siteConfig } from '../data/site-config';
+---
+
+<BaseLayout
+  title="联系我们"
+  description="联系我们 — 创新驱动科技，获取免费技术咨询和解决方案。"
+>
+  <!-- 页内 Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <span class="hero__tag">联系我们</span>
+      <h1>期待与您相遇</h1>
+      <p style="max-width:600px;margin:var(--spacing-md) auto 0;font-size:1.1rem;">
+        无论您有什么问题或需求，我们随时准备为您提供帮助
+      </p>
+    </div>
+  </section>
+
+  <!-- 联系内容 -->
+  <section class="section">
+    <div class="container">
+      <div class="contact-grid">
+        <!-- 联系表单 -->
+        <div>
+          <h2 style="margin-bottom:var(--spacing-lg);">发送消息</h2>
+          <ContactForm />
+        </div>
+
+        <!-- 联系信息 -->
+        <div class="contact-info">
+          <h2 style="margin-bottom:var(--spacing-lg);">联系方式</h2>
+
+          <div class="contact-info__item reveal">
+            <div class="contact-info__icon">✉️</div>
+            <div>
+              <h4>邮箱</h4>
+              <p><a href={`mailto:${siteConfig.contact.email}`}>{siteConfig.contact.email}</a></p>
+            </div>
+          </div>
+
+          <div class="contact-info__item reveal">
+            <div class="contact-info__icon">📞</div>
+            <div>
+              <h4>电话</h4>
+              <p>{siteConfig.contact.phone}</p>
+            </div>
+          </div>
+
+          <div class="contact-info__item reveal">
+            <div class="contact-info__icon">📍</div>
+            <div>
+              <h4>地址</h4>
+              <p>{siteConfig.contact.address}</p>
+            </div>
+          </div>
+
+          <div class="contact-info__item reveal">
+            <div class="contact-info__icon">🕐</div>
+            <div>
+              <h4>工作时间</h4>
+              <p>{siteConfig.contact.workingHours}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

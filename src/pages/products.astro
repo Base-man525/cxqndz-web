@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProductCard from '../components/ProductCard.astro';
+import SectionTitle from '../components/SectionTitle.astro';
+import { products } from '../data/products';
+---
+
+<BaseLayout
+  title="产品服务"
+  description="探索我们的完整产品矩阵——从 AI 分析到云计算，为您的企业提供全方位技术解决方案。"
+>
+  <!-- 页内 Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <span class="hero__tag">产品服务</span>
+      <h1>全方位技术解决方案</h1>
+      <p style="max-width:600px;margin:var(--spacing-md) auto 0;font-size:1.1rem;">
+        覆盖人工智能、云计算、物联网等领域，为不同规模的企业提供量身定制的技术赋能。
+      </p>
+    </div>
+  </section>
+
+  <!-- 产品网格 -->
+  <section class="section">
+    <div class="container">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:var(--spacing-lg);">
+        {products.map((product) => (
+          <ProductCard {...product} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section" style="background:var(--color-bg-secondary);text-align:center;">
+    <div class="container container--narrow">
+      <div class="reveal">
+        <h2 style="margin-bottom:var(--spacing-sm);">需要定制化方案？</h2>
+        <p style="margin-bottom:var(--spacing-lg);">
+          我们提供一对一技术咨询服务，帮您找到最适合的解决方案。
+        </p>
+        <a href="/contact" class="btn btn--primary">联系我们 →</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

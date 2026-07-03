@@ -1,0 +1,93 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroBanner from '../components/HeroBanner.astro';
+import SectionTitle from '../components/SectionTitle.astro';
+import ProductCard from '../components/ProductCard.astro';
+import StatCounter from '../components/StatCounter.astro';
+import { featuredProducts } from '../data/products';
+import { siteConfig } from '../data/site-config';
+---
+
+<BaseLayout>
+  <!-- Hero -->
+  <HeroBanner />
+
+  <!-- 核心优势 -->
+  <section class="section">
+    <div class="container">
+      <SectionTitle
+        label="核心优势"
+        title="为什么选择我们"
+        description="深耕技术前沿，用专业能力为企业创造真实价值"
+      />
+
+      <div class="stats-grid">
+        <div class="product-card reveal">
+          <div class="product-card__icon">🚀</div>
+          <h3>技术领先</h3>
+          <p>前沿技术栈 + 顶尖算法团队，保持行业技术引领地位。</p>
+        </div>
+
+        <div class="product-card reveal">
+          <div class="product-card__icon">🔒</div>
+          <h3>安全可靠</h3>
+          <p>多层安全架构，通过多项国际安全认证，数据安全保障无忧。</p>
+        </div>
+
+        <div class="product-card reveal">
+          <div class="product-card__icon">💬</div>
+          <h3>专属服务</h3>
+          <p>每位客户配备专属技术顾问，7×24 小时响应，问题不过夜。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 关键数据 -->
+  <section class="section" style="background:var(--color-bg-secondary);">
+    <div class="container">
+      <SectionTitle
+        label="数据说话"
+        title="我们的成绩"
+      />
+      <StatCounter />
+    </div>
+  </section>
+
+  <!-- 精选产品 -->
+  <section class="section">
+    <div class="container">
+      <SectionTitle
+        label="产品服务"
+        title="精选解决方案"
+        description="覆盖 AI、云计算、物联网等核心领域的完整产品矩阵"
+      />
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:var(--spacing-lg);">
+        {featuredProducts.map((product) => (
+          <ProductCard {...product} />
+        ))}
+      </div>
+
+      <div style="text-align:center;margin-top:var(--spacing-xl);">
+        <a href="/products" class="btn btn--outline">查看全部产品 →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section" style="background:var(--color-bg-secondary);text-align:center;">
+    <div class="container container--narrow">
+      <div class="reveal">
+        <span class="section-title__label">现在开始</span>
+        <h2 style="margin-bottom:var(--spacing-sm);">准备好数字化转型了吗？</h2>
+        <p style="margin-bottom:var(--spacing-lg);">
+          立即联系我们，获取免费技术咨询和定制化解决方案。
+        </p>
+        <a href="/contact" class="btn btn--primary" style="font-size:1.1rem;padding:16px 40px;">
+          联系我们 →</a
+        >
+      </div>
+    </div>
+  </section>
+</BaseLayout>

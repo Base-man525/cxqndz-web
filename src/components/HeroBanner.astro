@@ -1,0 +1,21 @@
+---
+import { siteConfig } from '../data/site-config';
+---
+
+<section class="hero">
+  <div class="hero__bg">
+    <div class="hero__grid-overlay"></div>
+  </div>
+
+  <div class="hero__content">
+    <span class="hero__tag">{siteConfig.nameEn}</span>
+    <h1 class="hero__title">
+      <span>{siteConfig.name}</span>
+    </h1>
+    <p class="hero__desc">{siteConfig.tagline}</p>
+    <div class="hero__actions">
+      <a href="/products" class="btn btn--primary">查看产品 →</a>
+      <a href="/contact" class="btn btn--outline">联系我们</a>
+    </div>
+  </div>
+</section>

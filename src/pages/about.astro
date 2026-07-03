@@ -1,0 +1,93 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Timeline from '../components/Timeline.astro';
+import SectionTitle from '../components/SectionTitle.astro';
+---
+
+<BaseLayout
+  title="关于我们"
+  description="了解创新驱动科技的发展历程、团队文化和核心技术能力。"
+>
+  <!-- 页内 Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <span class="hero__tag">关于我们</span>
+      <h1>用技术驱动未来</h1>
+      <p style="max-width:600px;margin:var(--spacing-md) auto 0;font-size:1.1rem;">
+        从 2018 年的一个小团队起步，到如今服务超过 200 家企业客户，我们始终相信技术的力量。
+      </p>
+    </div>
+  </section>
+
+  <!-- 公司介绍 -->
+  <section class="section">
+    <div class="container">
+      <div class="about-intro reveal">
+        <div class="about-intro__image">
+          🏢
+        </div>
+        <div>
+          <span class="section-title__label" style="text-align:left;">公司简介</span>
+          <h2 style="margin-bottom:var(--spacing-md);">关于创新驱动科技</h2>
+          <p style="margin-bottom:var(--spacing-sm);">
+            创新驱动科技（CXQNDZ）是一家专注于人工智能和云计算领域的科技公司。我们致力于将前沿技术转化为企业可用的生产力工具，帮助客户在数字化浪潮中保持竞争力。
+          </p>
+          <p style="margin-bottom:var(--spacing-sm);">
+            公司总部位于中国，在北京、上海、深圳、成都设有分支机构，服务网络覆盖全国。我们的团队由来自顶尖科技公司和科研机构的工程师组成，在 AI、大数据、云计算等领域拥有深厚的技术积累。
+          </p>
+          <p>
+            我们坚持"技术为本、客户为先"的理念，用创新的产品和优质的服务赢得了超过 200 家企业客户的信赖。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 发展历程 -->
+  <section class="section" style="background:var(--color-bg-secondary);">
+    <div class="container">
+      <SectionTitle
+        label="发展历程"
+        title="我们的故事"
+        description="从创立到壮大，每一步都走得踏实而有力"
+      />
+      <Timeline />
+    </div>
+  </section>
+
+  <!-- 价值观 -->
+  <section class="section">
+    <div class="container">
+      <SectionTitle
+        label="企业文化"
+        title="我们的价值观"
+      />
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:var(--spacing-lg);">
+        <div class="product-card reveal" style="text-align:center;">
+          <div class="product-card__icon" style="margin:0 auto var(--spacing-md);">🎯</div>
+          <h3>客户至上</h3>
+          <p>以客户成功为衡量标准，深入理解需求，交付超越预期的价值。</p>
+        </div>
+
+        <div class="product-card reveal" style="text-align:center;">
+          <div class="product-card__icon" style="margin:0 auto var(--spacing-md);">⚡</div>
+          <h3>持续创新</h3>
+          <p>拥抱变化，敢于突破，始终保持对前沿技术的好奇心和探索欲。</p>
+        </div>
+
+        <div class="product-card reveal" style="text-align:center;">
+          <div class="product-card__icon" style="margin:0 auto var(--spacing-md);">🤝</div>
+          <h3>开放协作</h3>
+          <p>打破边界，坦诚沟通。团队内部、与客户之间，我们都是并肩前行的伙伴。</p>
+        </div>
+
+        <div class="product-card reveal" style="text-align:center;">
+          <div class="product-card__icon" style="margin:0 auto var(--spacing-md);">🏆</div>
+          <h3>追求卓越</h3>
+          <p>不满足于"够用"，对每一行代码、每一项服务都精益求精。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

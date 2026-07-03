@@ -1,0 +1,25 @@
+---
+export interface Props {
+  name: string;
+  icon: string;
+  description: string;
+  features: string[];
+  pddLink?: string;
+}
+
+const { name, icon, description, features, pddLink } = Astro.props;
+---
+
+<article class="product-card reveal">
+  <div class="product-card__icon">{icon}</div>
+  <h3>{name}</h3>
+  <p>{description}</p>
+  <ul class="product-card__features">
+    {features.map((feat) => <li>{feat}</li>)}
+  </ul>
+  {pddLink && (
+    <a href={pddLink} target="_blank" rel="noopener noreferrer" class="product-card__btn">
+      前往购买 →
+    </a>
+  )}
+</article>
